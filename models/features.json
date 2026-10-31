@@ -1,0 +1,9 @@
+[
+  "month",
+  "day_of_year",
+  "relative_humidity_2m_mean",
+  "precipitation_sum",
+  "wind_speed_10m_max",
+  "temperature_lag_1",
+  "temperature_rolling_mean_7"
+]
