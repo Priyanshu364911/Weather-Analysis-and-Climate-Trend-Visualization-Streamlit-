@@ -349,17 +349,9 @@ def show_prediction(model, features: list[str]) -> None:
     with st.form("prediction_form"):
         col1, col2 = st.columns(2)
         with col1:
-            month = st.selectbox(
-                "Month",
-                options=range(1, 13),
-                format_func=lambda value: MONTH_NAMES[value - 1],
-            )
-            day_of_year = st.number_input(
-                "Day of year",
-                min_value=1,
-                max_value=366,
-                value=180,
-                help="Use 1–365, or 366 in a leap year.",
+            selected_date = st.date_input(
+                "Date",
+                value=pd.Timestamp.today().date(),
             )
             humidity = st.number_input(
                 "Relative humidity (%)",
@@ -396,8 +388,8 @@ def show_prediction(model, features: list[str]) -> None:
 
     if submitted:
         input_values = {
-            "month": month,
-            "day_of_year": day_of_year,
+            "month": selected_date.month,
+            "day_of_year": selected_date.timetuple().tm_yday,
             HUMIDITY: humidity,
             RAINFALL: rainfall,
             WIND_SPEED: wind_speed,
