@@ -37,6 +37,13 @@ The generated model and dashboard data are included. Start the dashboard with:
 streamlit run app.py
 ```
 
+## Deploy to Streamlit Community Cloud
+
+Create an app from this repository's `main` branch with `app.py` as the entrypoint.
+In Advanced settings, select Python 3.11, then set the app subdomain to
+`weatheranalysis29`. If the app already exists, reboot it and clear its cache so
+Community Cloud reinstalls the dependencies from the root `requirements.txt`.
+
 ## Retrain the models
 
 To regenerate the model and analysis outputs from the source CSV:
